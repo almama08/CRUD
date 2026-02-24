@@ -9,7 +9,7 @@ class Terror extends Videojuego{
         $this->tipoTerror=$tipoTerror;
     }
 
-    public function getTitulo(){
+    public function getTituloTerror(){
         return $this->titulo;
     }
 

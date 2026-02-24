@@ -9,7 +9,10 @@ class Accion extends Videojuego{
         $this->tipoArmas=$tipoArmas;
     }
 
-    public function getTitulo(){
+    public function getId(){ return $this->id;
+    }
+
+    public function getTituloAccion(){
         return $this->titulo;
     }
 
