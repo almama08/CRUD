@@ -9,7 +9,20 @@ class VideojuegoController{
     }
 
     public function index(){
-        $videojuegos=$this->gestor->listar();
+        //cálculos para el paginador de Acción
+        $accion=$this->gestor->listarAccion();
+        $totalAccion=count($accion);
+        $accionPorPagina=3;
+        $totalPaginasAccion=ceil($totalAccion/$accionPorPagina);
+        $paginaActualAccion=$_GET['pActualAccion'] ?? 1;
+        $accionAcortados=array_slice($accion,($paginaActualAccion-1)*$accionPorPagina,$accionPorPagina);
+        //cálculos para el paginador de Terror
+        $terror=$this->gestor->listarTerror();
+        $totalTerror=count($terror);
+        $terrorPorPagina=3;
+        $totalPaginasTerror=ceil($totalTerror/$terrorPorPagina);
+        $paginaActualTerror=$_GET['pActualTerror'] ?? 1;
+        $terrorAcortados=array_slice($terror,($paginaActualTerror-1)*$terrorPorPagina,$terrorPorPagina);
         include "views/listar.php";
     }
 

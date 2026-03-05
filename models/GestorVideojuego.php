@@ -11,8 +11,24 @@ class GestorVideojuego{
         $_SESSION['videojuegos'][]=$videojuego;
     }
 
-    public function listar(){
-        return $_SESSION['videojuegos'];
+    public function listarAccion(){
+        $accion=[];
+        for($i=0;$i<count($_SESSION['videojuegos']);$i++){
+            if(get_class($_SESSION['videojuegos'][$i])=="Accion"){
+                $accion[]=$_SESSION['videojuegos'][$i];
+            }
+        }
+        return $accion;
+    }
+
+    public function listarTerror(){
+        $terror=[];
+        for($i=0;$i<count($_SESSION['videojuegos']);$i++){
+            if(get_class($_SESSION['videojuegos'][$i])=="Terror"){
+                $terror[]=$_SESSION['videojuegos'][$i];
+            }
+        }
+        return $terror;
     }
 
     public function buscar($id){

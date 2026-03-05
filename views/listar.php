@@ -19,7 +19,7 @@
         <th>Acciones</th>
     </tr>
 
-    <?php foreach ($videojuegos as $v):?>
+    <?php foreach ($accionAcortados as $v):?>
         <?php if(get_class($v)=="Accion"): ?>
         <tr>
             <td><?php echo $v->getId();?></td>
@@ -40,6 +40,9 @@
         <?php endif; ?>
     <?php endforeach; ?>
  </table>
+<?php for($i=1;$i<=$totalPaginasAccion;$i++):?>
+ <a href="index.php?accion=index&pActualAccion=<?=$i?>">Página <?=$i?></a>
+ <?php endfor; ?>
 
  <h3>Terror</h3>
 <!--Listado de terror-->
@@ -51,7 +54,7 @@
         <th>Acciones</th>
     </tr>
 
-    <?php foreach ($videojuegos as $v):?>
+    <?php foreach ($terrorAcortados as $v):?>
         <?php if(get_class($v)=="Terror"): ?>
         <tr>
             <td><?php echo $v->getId();?></td>
@@ -72,6 +75,9 @@
         <?php endif; ?>
     <?php endforeach; ?>
  </table>
+ <?php for($i=1;$i<=$totalPaginasTerror;$i++):?>
+ <a href="index.php?accion=index&pActualTerror=<?=$i?>">Página <?=$i?></a>
+ <?php endfor; ?>
 
 </body>
 </html>
